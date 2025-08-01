@@ -1,0 +1,174 @@
+.analysis-result {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  position: relative;
+}
+
+.analysis-result h2 {
+  margin-bottom: 1.5rem;
+}
+
+/* LLM Badge styling */
+.llm-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: #6200ea;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+}
+
+.llm-badge::before {
+  content: "✨";
+  margin-right: 5px;
+}
+
+.analysis-result h3 {
+  margin: 2rem 0 1rem;
+  color: #333;
+  font-size: 1.3rem;
+}
+
+.score-circle {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 1.5rem;
+  border: 5px solid #ff4d4d;
+}
+
+.score {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.result-details {
+  text-align: left;
+  margin-bottom: 2rem;
+}
+
+.result-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.stars {
+  color: #ffc107;
+}
+
+/* Keywords sections styling */
+.keywords-section {
+  margin: 2rem 0;
+  text-align: left;
+}
+
+.missing-keywords-info {
+  margin-bottom: 1rem;
+  color: #666;
+  font-style: italic;
+}
+
+.keywords-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 1rem;
+}
+
+.keyword {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.keyword.matched {
+  background-color: #e6f7e6;
+  color: #2e7d32;
+  border: 1px solid #a5d6a7;
+}
+
+.keyword.missing {
+  background-color: #ffebee;
+  color: #c62828;
+  border: 1px solid #ef9a9a;
+}
+
+/* LLM sections styling */
+.llm-section {
+  margin: 2rem 0;
+  text-align: left;
+  background-color: #f3e5f5;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid #6200ea;
+}
+
+.llm-list {
+  margin: 0.5rem 0 0 1.5rem;
+  padding: 0;
+}
+
+.llm-list li {
+  margin-bottom: 0.8rem;
+  line-height: 1.4;
+  color: #555;
+  position: relative;
+}
+
+.llm-list li::before {
+  content: "•";
+  color: #6200ea;
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+
+/* Improvement tips styling */
+.improvement-tips {
+  margin-top: 2rem;
+  text-align: left;
+  background-color: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid #ff4d4d;
+}
+
+.improvement-tips ul {
+  margin: 0.5rem 0 0 1.5rem;
+  padding: 0;
+}
+
+.improvement-tips li {
+  margin-bottom: 0.8rem;
+  line-height: 1.4;
+  color: #555;
+}
+
+/* AI-powered improvement tips styling */
+.improvement-tips h3[contains="AI-Powered"] {
+  color: #6200ea;
+}
+
+.improvement-tips:has(h3[contains="AI-Powered"]) {
+  border-left: 4px solid #6200ea;
+  background-color: #f3e5f5;
+}

@@ -1,0 +1,83 @@
+.settings-container {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.role-section {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+}
+
+.role-section form {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.role-section input {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.25rem;
+}
+
+.role-section button {
+  padding: 0.5rem 1rem;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+.role-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.5rem;
+}
+
+.role-item {
+  padding: 0.75rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.role-item.selected {
+  background-color: #bfdbfe;
+  border-color: #3b82f6;
+}
+
+.keywords-section {
+  margin-top: 2rem;
+}
+
+.keywords-section textarea {
+  width: 100%;
+  height: 150px;
+  padding: 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.25rem;
+  resize: vertical;
+}
+
+.save-btn {
+  display: block;
+  margin-top: 1.5rem;
+  padding: 0.75rem 2rem;
+  background-color: #10b981;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.save-btn:disabled {
+  background-color: #6b7280;
+  cursor: not-allowed;
+}

@@ -1,0 +1,15 @@
+# Node.js
+node_modules/
+.env
+*.log
+database.sqlite
+*.sqlite
+*.zip
+*.tar
+.DS_Store
+
+# OS
+Thumbs.db
+
+# VSCode
+.vscode/
