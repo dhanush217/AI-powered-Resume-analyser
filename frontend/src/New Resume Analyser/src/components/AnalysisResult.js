@@ -14,6 +14,18 @@ const AnalysisResult = ({ result }) => {
           AI Enhanced Analysis
         </div>
       )}
+      {result.note && (
+        <div className="analysis-note" style={{
+          backgroundColor: '#fff3cd',
+          border: '1px solid #ffeaa7',
+          borderRadius: '4px',
+          padding: '10px',
+          margin: '10px 0',
+          color: '#856404'
+        }}>
+          <strong>Note:</strong> {result.note}
+        </div>
+      )}
       <div className="score-circle">
         <span className="score">{result.score}%</span>
       </div>

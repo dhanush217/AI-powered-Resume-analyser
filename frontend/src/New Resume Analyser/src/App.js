@@ -4,6 +4,7 @@ import './App.css';
 import Header from './components/Header';
 import ResumeAnalyzer from './components/ResumeAnalyzer';
 import InsightsPage from './components/InsightsPage';
+import SettingsPage from './components/SettingsPage';
 import Footer from './components/Footer';
 
 function App() {

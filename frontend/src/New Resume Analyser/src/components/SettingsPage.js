@@ -10,7 +10,7 @@ const SettingsPage = () => {
   useEffect(() => {
     const fetchRoles = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/roles');
+        const response = await fetch('http://localhost:3001/api/roles');
         const data = await response.json();
         setRoles(data);
       } catch (error) {
@@ -25,7 +25,7 @@ const SettingsPage = () => {
     if (!newRole.trim()) return;
 
     try {
-      const response = await fetch('http://localhost:5000/api/roles', {
+      const response = await fetch('http://localhost:3001/api/roles', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ role: newRole, keywords: [] })
@@ -44,14 +44,14 @@ const SettingsPage = () => {
 
   const handleSaveSettings = async () => {
     try {
-      const roleData = roles.find(r => r._id === selectedRole);
+      const roleData = roles.find(r => r.id === selectedRole);
       if (!roleData) return;
 
-      const response = await fetch(`http://localhost:5000/api/roles/${roleData._id}`, {
+      const response = await fetch(`http://localhost:3001/api/roles/${roleData.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ 
-          keywords: keywords.split(',').map(k => k.trim()).filter(k => k) 
+        body: JSON.stringify({
+          keywords: keywords.split(',').map(k => k.trim()).filter(k => k)
         })
       });
 
@@ -59,11 +59,12 @@ const SettingsPage = () => {
       
       alert('Settings saved successfully!');
       // Refresh roles list
-      const updatedResponse = await fetch('http://localhost:5000/api/roles');
+      const updatedResponse = await fetch('http://localhost:3001/api/roles');
       const updatedData = await updatedResponse.json();
-      setRoles(updatedData.map(role => role.role));
+      setRoles(updatedData);
     } catch (error) {
       console.error('Save failed:', error);
+      alert('Failed to save settings. Please try again.');
     }
   };
 
@@ -83,11 +84,11 @@ const SettingsPage = () => {
         
         <div className="role-list">
           {roles.map((role) => (
-            <div 
-              key={role._id}
-              className={`role-item ${selectedRole === role._id ? 'selected' : ''}`}
+            <div
+              key={role.id}
+              className={`role-item ${selectedRole === role.id ? 'selected' : ''}`}
               onClick={() => {
-                setSelectedRole(role._id);
+                setSelectedRole(role.id);
                 setKeywords(role.keywords?.join(', ') || '');
               }}
             >
@@ -98,12 +99,21 @@ const SettingsPage = () => {
       </div>
 
       <div className="keywords-section">
-        <h3>Keywords for {selectedRole || 'Select Role'}</h3>
+        <h3>Keywords for {selectedRole ? roles.find(r => r.id === selectedRole)?.role || 'Selected Role' : 'Select Role'}</h3>
         <textarea
           value={keywords}
           onChange={(e) => setKeywords(e.target.value)}
-          placeholder="Enter comma-separated keywords"
+          placeholder="Enter comma-separated keywords (e.g., JavaScript, React, Node.js)"
           disabled={!selectedRole}
+          rows="4"
+          style={{
+            width: '100%',
+            padding: '10px',
+            borderRadius: '5px',
+            border: '1px solid #ccc',
+            resize: 'vertical',
+            fontFamily: 'inherit'
+          }}
         />
       </div>
 
